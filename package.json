@@ -1,0 +1,26 @@
+{
+  "name": "planningpoker",
+  "version": "1.0.0",
+  "description": "Planning Poker prototype",
+  "main": "app.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hastaen/PlanningPoker.git"
+  },
+  "keywords": [
+    "js"
+  ],
+  "author": "jonas ostlund",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hastaen/PlanningPoker/issues"
+  },
+  "homepage": "https://github.com/Hastaen/PlanningPoker#readme",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "express": "^4.15.3"
+  }
+}
