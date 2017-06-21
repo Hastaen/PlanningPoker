@@ -10,10 +10,9 @@ app.use(function (req, res, next) {
   next()
 })
 app.get('/index', function (req, res) {
-  //res.send('Hello World!')
   res.sendFile(path.join(__dirname + '/public/views/index.html'));
 })
 
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+  console.log('App listening on port 3000!')
 })

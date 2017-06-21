@@ -1,0 +1,5 @@
+# Can ignore specific files
+.log
+
+# Ignore node modules
+node_modules/**/* 

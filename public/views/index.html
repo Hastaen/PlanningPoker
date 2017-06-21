@@ -1,16 +1,91 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="planningPokerApp">
+<html lang="en" ng-app="PlanningPokerApp">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Planning Poker</title>
-    <script src="/modules/angular/angular.js"></script>
-    <script src="/static/js/clientApp.js"></script>
+    <link rel="stylesheet" href="/static/css/normalize.css"/>
     <link rel="stylesheet" href="/static/css/site.css"/>
+    <script src="/modules/angular/angular.js"></script>
+    <script src="/modules/jquery/dist/jquery.js"></script>
+    <script src="/static/js/clientApp.js"></script>
+<style>
 
+</style>
 </head>
 <body>
+    <div class="navbar navbar--default">
+        <div class="navbar__title navbar__title--default ">
+            PLANNING POKER
+        </div>
+    </div>
+    <div class="maincontainer" id="top"  ng-controller="pokerController as ctrl">
+        <div class="statecontainer" >
+            <div class="statecontainer__content">
+            <div id="SelectState">
+                <div id="SelectStateTitleID">
+                    <div class="StateTitle">
+                        CHOOSE YOUR ESTIMATE
+                    </div>
+                </div>
+            </div>   
+            
+            <div id="WaitingState" class="hide">
 
-PlanningPokerApp!!!
+                    <div class="StateTitle">
+                        CLICK WHEN READY
+                    </div>
+
+                <div id="WaitCardID" >
+                    <div class="flexchild flexchild--waiting autoCenterHelper" ng-click="ctrl.ShowSelectedCard()">
+                        <div class="flexchild__Reveallabel">
+                            REVEAL
+                        </div>
+                    </div>
+                </div>
+            </div> 
+            
+            <div id="RevealState" class="hide">
+                  <div class="StateTitle">
+                        CHOOSEN ESTIMATE
+                    </div>
+                <div id="SelectedCardID" >
+                    <div class="flexchild flexchild--default autoCenterHelper">
+                        <div class="flexchild__label">
+                            <span ng-bind="ctrl.SelectedCard.label"></span>
+                        </div>
+                        <div class="flexchild__bottomlabel">
+                            <span ng-bind="ctrl.SelectedCard.label"></span>
+                        </div> 
+                    </div>
+                </div> 
+                <div id="RestartButtonID" class="buttonContainer hide">
+                    <div class="button button--default" ng-click="ctrl.Restart()">
+                        <span>RESTART</span>
+                    </div>
+                </div>
+            </div>   
+            
+            </div>          
+        </div>
+
+            <div class="cardcontainer">
+                <div class="flexcontainer" id="FlexParentID">
+                    <div class="flexchild flexchild--default" ng-repeat="card in ctrl.Cards" ng-click="ctrl.SelectCard($index)">
+                        <div ng-class="$last ? 'flexchild__Coffeelabel' : 'flexchild__label'">
+                            <span ng-bind="card.label"></span>
+                        </div>
+                        <div class="flexchild__bottomlabel">
+                            <span ng-bind="card.label"></span>
+                        </div> 
+                    </div>
+                    
+                </div>
+            </div>
+
+    </div>
+
+
     
 </body>
 </html>
